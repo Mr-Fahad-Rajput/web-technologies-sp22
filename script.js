@@ -54,7 +54,7 @@ $.ajax({
 
         for(var i=0; i<response.length; i++){
             $("#resultsApi").append("<div> <h1>Title of Recipe " + response[i].title + "</h1></div>");
-            $("#resultsApi").append("<div> Body of Recipe <br>" + response[i].body + "</div>");
+            $("#resultsApi").append(`<div> Body of Recipe <br> ${response[i].body} </div>`);
 
 
         }
