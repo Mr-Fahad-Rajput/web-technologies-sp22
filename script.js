@@ -5,6 +5,7 @@ $("#btnAdd").click(handleButton);
 $("#list li").click(handleDelete);
 $("#ajaxCall").click(sendAjax);
 $("#ajaxcallApi").click(sendajaxApi);
+$("#delbtn").click(delApi);
 //sendajaxApi();
 console.log("Bindings Successful ");
 
@@ -45,7 +46,7 @@ function sendajaxApi(){
 
 $.ajax({
    
-    url:"https://usman-recipes.herokuapp.com/api/recipes",
+    url:"https://usman-recipes.herokuapp.com/api/products",
     method:"GET",
     success:  function (response){
         console.log("Rec Ajax Response API");
@@ -53,9 +54,9 @@ $.ajax({
         $("#resultsApi").empty();
 
         for(var i=0; i<response.length; i++){
-            $("#resultsApi").append("<div> <h1>Title of Recipe " + response[i].title + "</h1></div>");
-            $("#resultsApi").append(`<div> Body of Recipe <br> ${response[i].body} </div>`);
-
+            $("#resultsApi").append("");
+            $("#resultsApi").append(`<div class="recipee"  temp-id="${response[i]._id}"> <button id=delBtn>Delete</button><div> <h1>Title of Recipe :${response[i].title }</h1></div><br><div> Body of Recipe <br> ${response[i].body} </div></div>`);
+            $("#delBtn").click(delApi);
 
         }
     
@@ -64,3 +65,11 @@ $.ajax({
 });
 
 };
+function delApi(){
+    console.log("del Function Called")
+    var btn= $(this);
+    var pnt = btn.closest(".recipee");
+    let id = pnt.attr("temp-id");
+    console.log(id);
+    
+    }

@@ -1,0 +1,7 @@
+Error:
+
+nodemon : File C:\Users\fahad\AppData\Roaming\npm\nodemon.ps1 cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at
+
+Solution:
+run vs as administrator then run command
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
